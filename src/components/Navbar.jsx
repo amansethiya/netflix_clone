@@ -7,7 +7,7 @@ import caret_icon from "../assets/caret_icon.svg";
 
 const Navbar = () => {
   return (
-    <div className="navbar min-w-full flex justify-around items-center mt-6">
+    <div className="navbar min-w-full flex justify-around items-center mt-6 fixed">
       <div className="left-nav flex justify-center gap-10 items-center">
         <img src={logo} alt="" className="w-[148px] h-[40px]" />
         <ul className="flex gap-5">
