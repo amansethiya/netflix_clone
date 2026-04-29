@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import TitleCards from "../components/titleCards";
 import Hero_img from "../assets/hero_banner.jpg";
 import Hero_title from "../assets/hero_title.png";
 import Play_icon from "../assets/play_icon.png";
@@ -18,15 +19,16 @@ const Home = () => {
             Perspiciatis labore exercitationem reiciendis?
           </p>
           <div className="hero-btns flex gap-10">
-            <button className=" cursor-pointer flex gap-3 items-center  px-4 py-1 rounded-[5px] bg-white text-black">
+            <button className="hover:bg-[#c2c2c2] cursor-pointer flex gap-3 items-center  px-4 py-1 rounded-[5px] bg-white text-black">
               <img src={Play_icon} alt="" className="w-5 h-5" />
               Play Now
             </button>
-            <button className=" cursor-pointer flex gap-3 items-center  px-4 py-1 rounded-[5px] bg-black text-white">
+            <button className="hover:bg-[#272727] cursor-pointer flex gap-3 items-center  px-4 py-1 rounded-[5px] bg-black text-white">
               <img src={Info_icon} alt="" className="w-5 h-5" />
               More Info
             </button>
           </div>
+          <TitleCards />
         </div>
       </div>
     </div>

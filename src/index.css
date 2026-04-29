@@ -6,3 +6,7 @@ body {
     color: white;
     font-family: "poppins";
 }
+
+.card-list {
+    scrollbar-width: none;
+}
