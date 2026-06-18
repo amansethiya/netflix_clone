@@ -5,7 +5,6 @@ import Hero_img from "../assets/hero_banner.jpg";
 import Hero_title from "../assets/hero_title.png";
 import Play_icon from "../assets/play_icon.png";
 import Info_icon from "../assets/info_icon.png";
-import Footer from "../components/footer ";
 
 const Home = () => {
   return (

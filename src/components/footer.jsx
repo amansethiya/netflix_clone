@@ -7,22 +7,31 @@ import fb_icon from "../assets/facebook_icon.png";
 
 const footer = () => {
   return (
-    <div className="footer">
-      <div className="footer-icon">
-        <img src={yt_icon} alt="" />
-        <img src={x_icon} alt="" />
-        <img src={insta_icon} alt="" />
-        <img src={fb_icon} alt="" />
-      </div>
-      <ul className="ul">
-        <li className=""></li>
-        <li className=""></li>
-        <li className=""></li>
-        <li className=""></li>
-        <li className=""></li>
-        <li className=""></li>
-        <li className=""></li>
+    <div className="footer p-8 max-w-full items-center mt-20 ">
+      <ul className="ul grid grid-cols-3 gap-4 mb-8 list-none text-center">
+        <li className="">Audio Description</li>
+        <li className="">Help Center</li>
+        <li className="">Gift Card</li>
+        <li className="">Media Center</li>
+        <li className="">Investor Relation</li>
+        <li className="">Jobs</li>
+        <li className="">Terms of Use</li>
+        <li className="">Privacy Policy</li>
+        <li className="">Legal Notic </li>
+        <li className="">Cookies</li>
+        <li className="">Contact Us</li>
       </ul>
+
+      <div className=" flex flex-row justify-around my-3 mx-auto items-center">
+        <p className="text-xl font-bold text-[#666]">Netflix India</p>
+
+        <div className="footer-icon flex gap-5  ">
+          <img src={yt_icon} alt="" className="w-8 cursor-pointer" />
+          <img src={x_icon} alt="" className="w-8 cursor-pointer" />
+          <img src={insta_icon} alt="" className="w-8 cursor-pointer" />
+          <img src={fb_icon} alt="" className="w-8 cursor-pointer" />
+        </div>
+      </div>
     </div>
   );
 };
