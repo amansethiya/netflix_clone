@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import cardsData from "../assets/cards/Cards_data";
+import { Link } from "react-router-dom";
 
 const titleCards = ({ title, category }) => {
   const [apiData, setapiData] = useState([]);
@@ -43,7 +44,7 @@ const titleCards = ({ title, category }) => {
       >
         {apiData.map((card, index) => {
           return (
-            <div className="card relative" key={index}>
+            <Link className="card relative" key={index}>
               <img
                 src={`https://image.tmdb.org/t/p/w500` + card.backdrop_path}
                 alt=""
@@ -52,7 +53,7 @@ const titleCards = ({ title, category }) => {
               <p className="absolute bottom-2.5 right-2.5">
                 {card.original_title}
               </p>
-            </div>
+            </Link>
           );
         })}
       </div>

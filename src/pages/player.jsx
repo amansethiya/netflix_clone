@@ -1,7 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Player_back from "../assets/back_arrow_icon.png";
+import { useParams } from "react-router-dom";
 
-const player = () => {
+const Player = () => {
+  const { id } = useParams();
+
+  const [apiData, setApiData] = useState({
+    name: "",
+    key: "",
+    published_at: "",
+    type: "",
+  });
+
   const options = {
     method: "GET",
     headers: {
@@ -11,17 +21,15 @@ const player = () => {
     },
   };
 
-
-  useEffect() => {()=>{}}
-
-
-  fetch(
-    "https://api.themoviedb.org/3/movie/502356/videos?language=en-US",
-    options,
-  )
-    .then((res) => res.json())
-    .then((res) => console.log(res))
-    .catch((err) => console.error(err));
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`,
+      options,
+    )
+      .then((res) => res.json())
+      .then((res) => setApiData(res.results[0]))
+      .catch((err) => console.error(err));
+  }, [id]);
 
   return (
     <div className="h-full flex flex-col justify-center items-center">
@@ -33,19 +41,19 @@ const player = () => {
       <iframe
         width="90%"
         height="650px"
-        src="https://www.youtube.com/embed/lpx2zFkapIk?si=F_qpB3hHw_Ifor8p"
+        src={`https://www.youtube.com/embed/${apiData.key}`}
         title="Trailer"
-        className="rounded-[10px]"
-        frameborder="0"
+        className="rounded-[10px] py-1"
+        frameBorder="0"
         allowFullScreen
       ></iframe>
       <div className="player-info flex items-center justify-between w-9/10">
-        <p className="">Published Date</p>
-        <p className="">Name</p>
-        <p className="">Type</p>
+        <p className="">{apiData.published_at?.slice(0, 10)}</p>
+        <p className="">{apiData.name}</p>
+        <p className="">{apiData.type}</p>
       </div>
     </div>
   );
 };
 
-export default player;
+export default Player;
