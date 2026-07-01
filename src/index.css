@@ -10,3 +10,7 @@ body {
 .card-list {
     scrollbar-width: none;
 }
+
+.nav-dark {
+    background-color: #2f3437e1;
+}

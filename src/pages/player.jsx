@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Player_back from "../assets/back_arrow_icon.png";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Player = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
-  const [apiData, setApiData] = useState({
+  const [apiData, setapiData] = useState({
     name: "",
     key: "",
     published_at: "",
@@ -27,7 +28,7 @@ const Player = () => {
       options,
     )
       .then((res) => res.json())
-      .then((res) => setApiData(res.results[0]))
+      .then((res) => setapiData(res.results[0]))
       .catch((err) => console.error(err));
   }, [id]);
 
@@ -35,6 +36,9 @@ const Player = () => {
     <div className="h-full flex flex-col justify-center items-center">
       <img
         src={Player_back}
+        onClick={() => {
+          navigate(-2);
+        }}
         alt=""
         className="absolute top-5 left-5 w-12 cursor-pointer"
       />
@@ -43,7 +47,7 @@ const Player = () => {
         height="650px"
         src={`https://www.youtube.com/embed/${apiData.key}`}
         title="Trailer"
-        className="rounded-[10px] py-1"
+        className="rounded-[10px] my-5"
         frameBorder="0"
         allowFullScreen
       ></iframe>

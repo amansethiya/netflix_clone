@@ -44,7 +44,11 @@ const titleCards = ({ title, category }) => {
       >
         {apiData.map((card, index) => {
           return (
-            <Link className="card relative" key={index}>
+            <Link
+              to={`/player/${card.id}`}
+              className="card relative"
+              key={index}
+            >
               <img
                 src={`https://image.tmdb.org/t/p/w500` + card.backdrop_path}
                 alt=""

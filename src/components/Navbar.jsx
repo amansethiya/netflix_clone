@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import "../index.css";
 import logo from "../assets/logo.png";
 import Search_icon from "../assets/search_icon.svg";
 import bell_icon from "../assets/bell_icon.svg";
@@ -6,8 +7,23 @@ import profile_img from "../assets/profile_img.png";
 import caret_icon from "../assets/caret_icon.svg";
 
 const Navbar = () => {
+  const navref = useRef();
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY >= 80) {
+        navref.current.classList.add("nav-dark");
+      } else {
+        navref.current.classList.remove("nav-dark");
+      }
+    });
+  }, []);
+
   return (
-    <div className="navbar min-w-full flex justify-around items-center mt-6 fixed">
+    <div
+      ref={navref}
+      className="navbar min-w-full flex justify-around items-center pt-5 pb-2 z-50 transition-all duration-300 fixed"
+    >
       <div className="left-nav flex justify-center gap-10 items-center">
         <img src={logo} alt="" className="w-[148px] h-[40px]" />
         <ul className="flex gap-5">
