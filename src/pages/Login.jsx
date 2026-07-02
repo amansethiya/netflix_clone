@@ -1,8 +1,22 @@
 import React, { useState } from "react";
 import Logo from "../assets/logo.png";
 import Bg_banner from "../assets/background_banner.jpg";
+import { login, signup } from "../firebase";
+
 const Login = () => {
   const [signState, setsignState] = useState("Sign In");
+  const [name, setname] = useState("");
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+
+  const user_auth = async (event) => {
+    event.preventDefault();
+    if (signState === "Sign In") {
+      await login(email, password);
+    } else {
+      await signup(name, email, password);
+    }
+  };
 
   return (
     <div
@@ -17,6 +31,10 @@ const Login = () => {
         <form action="">
           {signState === "Sign Up" ? (
             <input
+              value={name}
+              onChange={(e) => {
+                setname(e.target.value);
+              }}
               className="w-full h-12 bg-[#333] text-white  my-1 font-bold border-0 outline-0 rounded-[4px] px-4 py-5 text-xs placeholder:font-medium"
               type="text"
               placeholder="Your Name"
@@ -26,13 +44,21 @@ const Login = () => {
           )}
 
           <input
+            value={email}
+            onChange={(e) => {
+              setemail(e.target.value);
+            }}
             className="w-full h-12 bg-[#333] text-white  my-1 font-bold border-0 outline-0 rounded-[4px] px-4 py-5 text-xs placeholder:font-medium"
             type="email"
-            name="emain"
+            name="email"
             id=""
             placeholder="Your eMail"
           />
           <input
+            value={password}
+            onChange={(e) => {
+              setpassword(e.target.value);
+            }}
             className="w-full h-12 bg-[#333] text-white  my-1 font-bold border-0 outline-0 rounded-[4px] px-4 py-5 text-xs placeholder:font-medium"
             type="password"
             name="pass"
@@ -40,6 +66,7 @@ const Login = () => {
             placeholder="Your Password"
           />
           <button
+            onClick={user_auth}
             className="w-full border-0 outline-0 text-xs  p-4 bg-[#e50914] text-white rounded-[4px] font-bold mt-5 cursor-pointer"
             type="submit"
           >

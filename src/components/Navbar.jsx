@@ -5,6 +5,7 @@ import Search_icon from "../assets/search_icon.svg";
 import bell_icon from "../assets/bell_icon.svg";
 import profile_img from "../assets/profile_img.png";
 import caret_icon from "../assets/caret_icon.svg";
+import { logout } from "../firebase";
 
 const Navbar = () => {
   const navref = useRef();
@@ -35,15 +36,22 @@ const Navbar = () => {
           <li>Browse by Language</li>
         </ul>
       </div>
-      <div className="right-nav flex justify-center gap-5">
-        <img src={Search_icon} alt="" className=" w-[15px]  " />
-        <p>Children</p>
+      <div className="right-nav flex justify-center gap-5 ">
+        <div className="bg-[#00000066] flex justify-center items-center gap-3 rounded-xl px-4">
+          <img src={Search_icon} alt="" className=" w-[15px]  " />
+          <p className="text-[#b7b7b779]">Search</p>
+        </div>
         <img src={bell_icon} alt="" className=" w-[20px]" />
         <div className="relative group flex gap-3 ">
           <img src={profile_img} alt="" className=" w-[30px] h-[30px] " />
           <img src={caret_icon} alt="" className=" w-[15px]" />
-          <div className="absolute top-full mt-3 right-0 w-max bg-[#191919] py-3 px-4 rounded-md shadow-lg z-50 hidden group-hover:block">
-            <p className="text-sm cursor-pointer hover:underline whitespace-nowrap">
+          <div className="absolute top-full mt-1 right-0 w-max bg-[#191919] py-3 px-4 rounded-md shadow-lg z-50 hidden group-hover:block">
+            <p
+              onClick={() => {
+                logout();
+              }}
+              className="text-sm cursor-pointer hover:underline whitespace-nowrap"
+            >
               Sign out of Netflix
             </p>
           </div>
