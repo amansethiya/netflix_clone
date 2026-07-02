@@ -5,35 +5,73 @@ import x_icon from "../assets/twitter_icon.png";
 import insta_icon from "../assets/instagram_icon.png";
 import fb_icon from "../assets/facebook_icon.png";
 
-const footer = () => {
+const Footer = () => {
   return (
-    <div className="footer p-8 max-w-full items-center mt-20 ">
-      <ul className="ul grid grid-cols-3 gap-4 mb-8 list-none text-center">
-        <li className="">Audio Description</li>
-        <li className="">Help Center</li>
-        <li className="">Gift Card</li>
-        <li className="">Media Center</li>
-        <li className="">Investor Relation</li>
-        <li className="">Jobs</li>
-        <li className="">Terms of Use</li>
-        <li className="">Privacy Policy</li>
-        <li className="">Legal Notic </li>
-        <li className="">Cookies</li>
-        <li className="">Contact Us</li>
+    <footer className="w-full mt-20 px-4 sm:px-6 md:px-10 lg:px-[6%] py-8 text-[#808080]">
+      {/* Links */}
+      <ul className=" flex flex-col justify-center items-center md:grid sm:grid-cols-3  gap-y-4 gap-x-100 text-sm md:text-base">
+        <li className="cursor-pointer hover:text-white transition">
+          Audio Description
+        </li>
+        <li className="cursor-pointer hover:text-white transition">
+          Help Center
+        </li>
+        <li className="cursor-pointer hover:text-white transition">
+          Gift Cards
+        </li>
+        <li className="cursor-pointer hover:text-white transition">
+          Media Center
+        </li>
+        <li className="cursor-pointer hover:text-white transition">
+          Investor Relations
+        </li>
+        <li className="cursor-pointer hover:text-white transition">Jobs</li>
+        <li className="cursor-pointer hover:text-white transition">
+          Terms of Use
+        </li>
+        <li className="cursor-pointer hover:text-white transition">
+          Privacy Policy
+        </li>
+        <li className="cursor-pointer hover:text-white transition">
+          Legal Notices
+        </li>
+        <li className="cursor-pointer hover:text-white transition">Cookies</li>
+        <li className="cursor-pointer hover:text-white transition">
+          Contact Us
+        </li>
       </ul>
 
-      <div className=" flex flex-row justify-around my-3 mx-auto items-center">
-        <p className="text-xl font-bold text-[#666]">Netflix India</p>
+      {/* Bottom */}
+      <div className="mt-10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <p className="text-lg md:text-xl font-semibold text-[#666]">
+          Netflix India
+        </p>
 
-        <div className="footer-icon flex gap-5  ">
-          <img src={yt_icon} alt="" className="w-8 cursor-pointer" />
-          <img src={x_icon} alt="" className="w-8 cursor-pointer" />
-          <img src={insta_icon} alt="" className="w-8 cursor-pointer" />
-          <img src={fb_icon} alt="" className="w-8 cursor-pointer" />
+        <div className="flex items-center gap-4">
+          <img
+            src={yt_icon}
+            alt="YouTube"
+            className="w-6 sm:w-7 md:w-8 cursor-pointer hover:scale-110 transition"
+          />
+          <img
+            src={x_icon}
+            alt="X"
+            className="w-6 sm:w-7 md:w-8 cursor-pointer hover:scale-110 transition"
+          />
+          <img
+            src={insta_icon}
+            alt="Instagram"
+            className="w-6 sm:w-7 md:w-8 cursor-pointer hover:scale-110 transition"
+          />
+          <img
+            src={fb_icon}
+            alt="Facebook"
+            className="w-6 sm:w-7 md:w-8 cursor-pointer hover:scale-110 transition"
+          />
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
-export default footer;
+export default Footer;

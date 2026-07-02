@@ -2,31 +2,39 @@ import React, { useState } from "react";
 import Logo from "../assets/logo.png";
 import Bg_banner from "../assets/background_banner.jpg";
 import { login, signup } from "../firebase";
+import netflix_spinner from "../assets/netflix_spinner.gif";
 
 const Login = () => {
   const [signState, setsignState] = useState("Sign In");
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
+  const [loading, setloading] = useState(false);
 
   const user_auth = async (event) => {
     event.preventDefault();
+    setloading(true);
     if (signState === "Sign In") {
       await login(email, password);
     } else {
       await signup(name, email, password);
     }
+    setloading(false);
   };
 
-  return (
+  return loading ? (
+    <div className="w-full h-[100vh] flex justify-center items-center">
+      <img className="w-50 fixed" src={netflix_spinner} alt="" />{" "}
+    </div>
+  ) : (
     <div
-      className="login h-[100vh] px-5 py-[8%] "
+      className="login min-h-screen px-5 py-[8%] "
       style={{
         backgroundImage: `linear-gradient(#0000007e, #0000007e), url(${Bg_banner})`,
       }}
     >
       <img src={Logo} alt="" className="logo-login w-28" />
-      <div className="login-form w-full max-w-[450px] bg-[rgba(0,0,0,0.75)] rounded-[4px] p-16 m-auto">
+      <div className="login-form w-full max-w-[450px] bg-[rgba(0,0,0,0.75)] rounded-[4px] p-8 md:p-16 mt-35 md:m-auto  ">
         <h1 className="login-title text-3xl font-bold mb-7"> {signState} </h1>
         <form action="">
           {signState === "Sign Up" ? (
@@ -75,7 +83,7 @@ const Login = () => {
           <div className="flex items-center justify-between mt-4 text-xs">
             <div className="form-help flex gap-2  ">
               <input type="checkbox" name="remember" id="" />{" "}
-              <lable>Remember Me</lable>
+              <label>Remember Me</label>
             </div>
             <h1 className="">Need Help?</h1>
           </div>
